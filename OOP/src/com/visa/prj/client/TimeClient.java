@@ -13,7 +13,7 @@ public class TimeClient {
 		System.out.println(t3.getHrs() + " : " + t3.getMin()); // 8 : 15
 		
 		Time t4 = t1.addTime(t2);
-		System.out.println(t4.getHrs() + " : " + t3.getMin()); // 8 : 15
+		System.out.println(t4.getHrs() + " : " + t4.getMin()); // 8 : 15
 	}
 
 }
