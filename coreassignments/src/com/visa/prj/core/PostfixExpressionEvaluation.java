@@ -1,6 +1,8 @@
 package com.visa.prj.core;
 
 
+import java.util.Stack;
+
 /**
  * 
  * Postfix expression evaluation
@@ -19,7 +21,25 @@ public class PostfixExpressionEvaluation {
 	 * @return an integer corresponding to the value of the postfix expression.
 	 */
 	public int evalPostfixExpression(String[] input) {
-
-		return 0;
+		Stack<Integer> result = new Stack<Integer>();
+		int num = 0;
+		for (String s: input) {
+			try {
+				num = Integer.parseInt(s);
+			} catch (NumberFormatException e) {
+				int y = result.pop();
+				int x = result.pop();
+				if (s.equals("+"))
+					num = x + y;
+				else if (s.equals("-"))
+					num = x - y;
+				else if (s.equals("*"))
+					num = x * y;
+				else if (s.equals("/"))
+					num = x / y;
+			}
+			result.push(num);
+		}
+		return result.pop();
 	}
 }

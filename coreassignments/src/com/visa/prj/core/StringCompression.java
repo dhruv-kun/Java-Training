@@ -26,7 +26,24 @@ public class StringCompression {
 	 *         compressed string length is more than or equal to the length of
 	 *         the original string. Output contains string in lowercase always.
 	 */
-	public String getCompressedString(String input) {
-		return null;
+	public String getCompressedString(String original) {
+		String input = original.toLowerCase();
+		char c = input.charAt(0);
+		int freq = 1;
+		StringBuilder compressedStr = new StringBuilder();
+		for (int i = 1; i <= input.length(); i++) {
+			if (i == input.length() || c != input.charAt(i)) {
+				compressedStr.append(Character.toString(c));
+				compressedStr.append(Integer.toString(freq));
+				if (i < input.length()) {
+					c = input.charAt(i);
+					freq = 1;
+				}
+			} else
+				freq += 1;
+		}
+		if (compressedStr.toString().length() < input.length())
+			return compressedStr.toString();
+		return input;
 	}
 }

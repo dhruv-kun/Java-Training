@@ -31,3 +31,11 @@ tmp/
 *~.nib
 local.properties
 .loadpath
+
+##########################
+## IDEA
+##########################
+.idea/
+out/
+*.iml
+
