@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
+abstract @interface Sample {
+	String value();
+}
+
 public class ListSample {
 	public static void main(String[] args) {
 		List<Integer> iList = Arrays.asList(3, 41, 512, 13);
@@ -9,7 +14,6 @@ public class ListSample {
 	
 		print(iList);
 		print(sList);
-		
 		List<Integer> idList = new ArrayList<>();
 		List<String> sdList = new ArrayList<>();
 		
@@ -19,9 +23,11 @@ public class ListSample {
 		
 		
 	}
+	@Sample(value="Data")
 	private static <T> void copy(List<T> dList, List<T> list) {
 		for (T o: list)
 			dList.add(o);
+		
 	}
 	// ? unknown type allows only accessors
 	private static void print(List<?> list) {
