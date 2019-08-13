@@ -29,6 +29,9 @@ public class ProductServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		System.out.println("doGet ---------------" + request + "---------------");
+		
 		ProductDao productDao = new ProductDaoJdbcImpl();
 		try {
 			List<Product> products = productDao.getProducts();
@@ -73,6 +76,9 @@ public class ProductServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		System.out.println("doPost ---------------" + request + "---------------");
+		
 		ProductDao productDao = new ProductDaoJdbcImpl();
 		Product p = new Product();
 		p.setName(request.getParameter("name"));
