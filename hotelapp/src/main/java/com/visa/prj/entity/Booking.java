@@ -30,7 +30,7 @@ public class Booking implements Serializable {
 			.getDateInstance(DateFormat.MEDIUM);
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="booking_id")
+	@Column(name="booking_id", nullable = false)
 	private Long id;
 
 	@OneToOne
@@ -41,14 +41,17 @@ public class Booking implements Serializable {
 	@JoinColumn(name="hotel_id")
 	private Hotel hotel;
 
+	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date checkinDate;
-	
+
+	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date checkoutDate;
 
 	private boolean smoking;
 
+	@Column(nullable = false)
 	private int beds;
 
 	public Booking() {

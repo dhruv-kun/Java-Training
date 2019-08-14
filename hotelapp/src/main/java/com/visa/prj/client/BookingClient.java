@@ -18,7 +18,7 @@ public class BookingClient {
 		ctx.refresh();
 		
 		BookingService bs = ctx.getBean("bookingService", BookingService.class);
-		
+//
 		List<Hotel> list = bs.findHotels("NY");
 
 		for (Hotel htl: list)

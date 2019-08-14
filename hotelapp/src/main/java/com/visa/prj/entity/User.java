@@ -2,6 +2,7 @@ package com.visa.prj.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -19,10 +20,17 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private String username;
-    private boolean enabled;
+    private String username;
+
+	private boolean enabled;
+
+	@Column(nullable = false)
     private String email;
+
+    @Column(nullable = false)
     private String password;
+
+    @Column(nullable = false)
     private String name;
 
     public boolean isEnabled() {
