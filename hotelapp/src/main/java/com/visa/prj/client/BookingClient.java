@@ -2,6 +2,8 @@ package com.visa.prj.client;
 
 import java.util.List;
 
+import com.visa.prj.entity.Booking;
+import com.visa.prj.entity.User;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.visa.prj.entity.Hotel;
@@ -21,6 +23,13 @@ public class BookingClient {
 
 		for (Hotel htl: list)
 			System.out.println(htl);
+
+		User user = bs.getUser("d@visa.com", "visa123");
+		System.out.println(user);
+
+		List<Booking> bookingList = bs.getAllBookingsByUser(user);
+		for (Booking b: bookingList)
+			System.out.println(b.getDescription());
 	}
 
 }

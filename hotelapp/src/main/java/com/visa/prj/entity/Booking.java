@@ -34,11 +34,11 @@ public class Booking implements Serializable {
 	private Long id;
 
 	@OneToOne
-	@JoinColumn(name="user")
+	@JoinColumn(name="user_id")
 	private User user;
 	
 	@ManyToOne
-	@JoinColumn(name="hotel")
+	@JoinColumn(name="hotel_id")
 	private Hotel hotel;
 
 	@Temporal(TemporalType.TIMESTAMP)
