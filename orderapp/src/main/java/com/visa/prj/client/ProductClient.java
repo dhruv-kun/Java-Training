@@ -1,5 +1,7 @@
 package com.visa.prj.client;
 
+import java.util.List;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.visa.prj.entity.Product;
@@ -21,11 +23,16 @@ public class ProductClient {
 		// spring creates ids by lower-casing the first letter of class
 		OrderService os = ctx.getBean("orderService", OrderService.class);
 		
-		Product p = new Product(0, "Redmi Note 6 Pro", "mobile", 12999.00, 1000);
-		os.insertProduct(p);
-		System.out.println("Inserted: " + p.getId());
+//		Product p = new Product(0, "Realme 7", "mobile", 12999.00, 1000);
+//		os.insertProduct(p);
+//		System.out.println("Inserted: " + p.getId());
+//		
+//		p = os.getById(p.getId());
+//		System.out.println(p.getName() + "," + p.getCategory() + "," + p.getPrice());
 		
-		p = os.getById(1);
-		System.out.println(p.getName() + "," + p.getCategory() + "," + p.getPrice());
+		List<Product> pList = os.fetchProducts();
+		for (Product p: pList)
+			System.out.println(p.getName() + "," + p.getCategory() + "," + p.getPrice());
+		
 	}
 }
