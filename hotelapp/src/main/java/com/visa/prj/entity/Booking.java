@@ -33,7 +33,7 @@ public class Booking implements Serializable {
 	@Column(name="booking_id", nullable = false)
 	private Long id;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
 	

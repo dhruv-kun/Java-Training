@@ -20,7 +20,7 @@ public class BookingDaoJpaImpl implements BookingDao {
 
 	@Override
 	public List<Hotel> findHotels(String criteria) {
-		return em.createQuery("select h from Hotel h where h.city=:criteria", Hotel.class).setParameter("criteria", criteria)
+		return em.createQuery("select h from Hotel h where h.city like :criteria", Hotel.class).setParameter("criteria", "%" + criteria + "%")
 				.getResultList();
 	}
 

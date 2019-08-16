@@ -19,17 +19,17 @@ public class BookingClient {
 		
 		BookingService bs = ctx.getBean("bookingService", BookingService.class);
 //
-		List<Hotel> list = bs.findHotels("NY");
-
-		for (Hotel htl: list)
-			System.out.println(htl);
-
-		User user = bs.getUser("d@visa.com", "visa123");
-		System.out.println(user);
-
-		List<Booking> bookingList = bs.getAllBookingsByUser(user);
-		for (Booking b: bookingList)
-			System.out.println(b.getDescription());
+//		List<Hotel> list = bs.findHotels("mia");
+//
+//		for (Hotel htl: list)
+//			System.out.println(htl);
+//
+//		User user = bs.getUser("d@visa.com", "visa123");
+//		System.out.println(user);
+//
+//		List<Booking> bookingList = bs.getAllBookingsByUser(user);
+//		for (Booking b: bookingList)
+//			System.out.println(b.getDescription());
 	}
 
 }

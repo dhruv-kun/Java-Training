@@ -29,4 +29,13 @@ public class Customer {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+	
+	public Customer() {
+	}
+
+	public Customer(String email, String firstName) {
+		this.email = email;
+		this.firstName = firstName;
+	}
+	
 }
