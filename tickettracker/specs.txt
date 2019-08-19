@@ -1,0 +1,31 @@
+Assignments on JPA and Spring:
+
+	1) Ticket Tracker
+
+		1) An employee will raise a ticket
+		2) An employee will resolve a ticket ( IT cell)
+			a) List all open tickets
+			b) Picks a ticket to resolve and resolves, after resolving update the row
+			c) only employee of IT cell can resolve
+		3) Display turn- around time with details [ for closed tickets]
+			O/p:  ticket_id | ticket_desc    | resolved_by | time_taken
+				   1 			Laptop prob    p@visa.com 		12 hrs
+
+
+		2 tables a) Employee b) Ticket
+
+	Ticket
+	ticket_id | ticket_desc   | raised_date | raised_by (FK)   | resolved_by (FK) | resolved_date| resolve_text
+	1			LAptop reboot   15-8-2019 		a@visa.com 		p@visa.com  16-8-2019 		RAM changed
+
+
+	============================
+	Not an entity:
+	class Report {
+			id: int, desc: string, resolvedby:string, time:int, startDate: Date, endDate: Date
+	}
+
+	JPQL:
+
+	List<Report> 
+	"select new com.visa.prj.entity.Report(t.ticketId, t.ticketDesc, t.resolvedBy.email, ..) from Ticket"
