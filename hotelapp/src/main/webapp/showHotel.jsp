@@ -11,20 +11,21 @@
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<h1>${hotel.name}</h1>
-<address>${hotel.address} <br />
-${hotel.city}, ${hotel.state}, ${hotel.zip} <br />
-${hotel.country}</address>
-<p>Rate: ${hotel.price }</p>
-<form:form action="bookingForm.do" method="get" modelAttribute="hotel">
+	<h1>${hotel.name}</h1>
+	<address>${hotel.address}
+		<br /> ${hotel.city}, ${hotel.state}, ${hotel.zip} <br />
+		${hotel.country}
+	</address>
+	<p>Rate: ${hotel.price }</p>
+	<form:form action="bookingForm.do" method="get" modelAttribute="hotel">
 		<form:hidden id="id" path="id" />
 		<table>
-		<tr>
-			<td colspan="2">
-			<button type="submit">Book Hotel</button>
-			</td>
-		</tr>
-	</table>
-</form:form>
+			<tr>
+				<td colspan="2">
+					<button type="submit">Book Hotel</button>
+				</td>
+			</tr>
+		</table>
+	</form:form>
 </body>
 </html>

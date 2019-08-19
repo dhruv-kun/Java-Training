@@ -12,33 +12,34 @@
 </head>
 <body>
 
-<h1>Login</h1>
+	<h1>Login</h1>
 
-<form:form modelAttribute="booking" action="login.do"
-	cssClass="inline" method="get">
+	<form:form modelAttribute="booking" action="login.do" cssClass="inline"
+		method="get">
 
 
-	<fieldset><span class="errors span-18"> <form:errors
-		path="*" /> </span>
-	<table>
-		<tr>
-			<td><label for="user.email">Email:</label></td>
-			<td><form:input id="user.email" path="user.email" /></td>
-		</tr>
-		<tr>
-			<td><label for="user.password">password:</label></td>
-			<td><form:password id="user.password" path="user.password" /></td>
-		<tr>
-			<td>
-			<button type="submit">Login</button>
-			</td>
-			<td>
-			<button type="submit">New User</button>
-			</td>
-		</tr>
-		<form:hidden id="hotel.id" path="hotel.id" />
-	</table>
-	</fieldset>
-</form:form>
+		<fieldset>
+			<span class="errors span-18"> <form:errors path="*" />
+			</span>
+			<table>
+				<tr>
+					<td><label for="user.email">Email:</label></td>
+					<td><form:input id="user.email" path="user.email" /></td>
+				</tr>
+				<tr>
+					<td><label for="user.password">password:</label></td>
+					<td><form:password id="user.password" path="user.password" /></td>
+				<tr>
+					<td>
+						<button type="submit">Login</button>
+					</td>
+					<!-- <td>
+						<button type="submit">New User</button>
+					</td> -->
+				</tr>
+				<form:hidden id="hotel.id" path="hotel.id" />
+			</table>
+		</fieldset>
+	</form:form>
 </body>
 </html>
