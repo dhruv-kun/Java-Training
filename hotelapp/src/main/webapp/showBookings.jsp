@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<div id="bookings" "class="section">
+<div id="bookings" class="section">
  	<c:set  var="today"  value="<%= new Date() %>"/>  
  	<table width="100%">
  		<tr>
@@ -60,7 +60,7 @@
 	</table>
 	</c:if>
 	<div>
-		<a href="search.action">Change Search</a> 
+		<a href="search.do">Change Search</a> 
 	</div>
 </div>
 

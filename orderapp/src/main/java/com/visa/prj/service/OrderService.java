@@ -1,5 +1,6 @@
 package com.visa.prj.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -17,29 +18,29 @@ import com.visa.prj.entity.Product;
 @Service
 public class OrderService {
 
-	@Autowired(required=false)
+	@Autowired(required = false)
 	private ProductDao productDao;
-	
+
 	@Autowired
 	private OrderDao orderDao;
-	
+
 	@Transactional
 	public void placeOrder(Order o) {
 		orderDao.placeOrder(o); // saves into orders and items table
 		double total = 0.0;
 		List<Item> items = o.getItems();
-		for (Item i: items) {
+		for (Item i : items) {
 			total += i.getAmount();
 			Product p = getById(i.getProduct().getId());
 			p.setCount(p.getCount() - i.getQty()); // dirty checking will update product count
 		}
 		o.setTotal(total);
 	}
-	
+
 	public List<Order> getOrders(Customer c) {
 		return orderDao.getOrders(c);
 	}
-	
+
 	@Transactional
 	public int insertProduct(Product p) {
 		return productDao.addProduct(p);
@@ -52,4 +53,24 @@ public class OrderService {
 	public Product getById(int id) {
 		return productDao.getProduct(id);
 	}
+
+	@Transactional
+	public void placeOrder(String[] pids, String userEmail) {
+		Order o = new Order();
+		for (String pid : pids) {
+			Item i = new Item();
+			Product p = this.getById(Integer.parseInt(pid));
+			i.setProduct(p);
+			i.setAmount(p.getPrice());
+			i.setQty(1);
+			o.getItems().add(i);
+		}
+
+		Customer c = new Customer();
+		c.setEmail(userEmail);
+
+		o.setCustomer(c);
+		this.placeOrder(o);
+	}
+
 }
