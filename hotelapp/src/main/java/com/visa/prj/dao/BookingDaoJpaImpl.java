@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
@@ -34,10 +34,18 @@ public class BookingDaoJpaImpl implements BookingDao {
 		return em.createQuery("select u from User u where u.email=:email and u.password=:password", User.class)
 				.setParameter("email", email).setParameter("password", password).getSingleResult();
 	}
+	
+	@Override
+	public User getUser(String email) {
+		return em.createQuery("select u from User u where u.email=:email", User.class)
+				.setParameter("email", email).getSingleResult();
+	}
 
 	@Override
+	@Transactional
 	public long createBooking(Booking booking) {
-		return 0;
+		em.persist(booking);
+		return 1;
 	}
 
 	@Override
