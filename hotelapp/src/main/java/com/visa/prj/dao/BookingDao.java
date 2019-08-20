@@ -33,8 +33,6 @@ public interface BookingDao {
 	 * @return user
 	 */
 	public User getUser(String email, String password);
-	
-	public User getUser(String email);
 	/**
 	 * 
 	 * @param booking

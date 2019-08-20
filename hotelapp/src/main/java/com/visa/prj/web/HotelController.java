@@ -35,9 +35,9 @@ public class HotelController {
 	public ModelAndView searchHotel(HttpServletRequest req) {
 
 		ModelAndView mav = new ModelAndView();
-
+		System.out.println(req.getSession().getAttribute("user"));
 		if (req.getSession().getAttribute("user") == null) {
-			
+
 			mav.setViewName("userLoginForm.jsp");
 			mav.addObject("booking", new Booking());
 		} else {
@@ -51,7 +51,6 @@ public class HotelController {
 	public ModelAndView getHotels(SearchCriteria sc) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("searchResults.jsp");
-		// TODO reduce no of results to pageSize
 		List<Hotel> hotelList = bs.findHotels(sc.getSearchString());
 		if (hotelList.size() > sc.getPageSize())
 			hotelList = hotelList.subList(0, sc.getPageSize());
@@ -69,32 +68,27 @@ public class HotelController {
 	}
 
 	@RequestMapping("bookingForm.do")
-	public ModelAndView bookingForm(@RequestParam("id") int hotel_id) {
+	public ModelAndView bookingForm(HttpServletRequest req, @RequestParam("id") int hotel_id) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("bookingForm.jsp");
 		Booking b = new Booking();
 		Hotel hotel = bs.getHotelById(hotel_id);
+		User user = (User) req.getSession().getAttribute("user");
+		System.out.println(user);
 		b.setHotel(hotel);
+		b.setUser(user);
 		mav.addObject("booking", b);
 		return mav;
 	}
 
 	@RequestMapping("placeReservation.do")
-	public ModelAndView placeReservation(@ModelAttribute("hotel") Hotel hotel, @RequestParam("checkinDate") Date checkinDate,
-			@RequestParam("checkoutDate") Date checkoutDate,
+	public ModelAndView placeReservation(@ModelAttribute("hotel") Hotel hotel,
+			@RequestParam("checkinDate") Date checkinDate, @RequestParam("checkoutDate") Date checkoutDate,
 			@RequestParam("user.email") String email, HttpServletRequest req) {
-		// TODO
-	System.out.println(hotel.getName());
-//		Hotel hotel = bs.getHotelById(id);
-		String em = (String) req.getSession().getAttribute("user");
-		User user = bs.getUser(em);
-//		System.out.println(user);
-//		System.out.println(hotel);
+		User user = (User) req.getSession().getAttribute("user");
 		bs.makeBooking(user, hotel, checkinDate, checkoutDate, true, 3);
 		List<Booking> bookingList = bs.getAllBookingsByUser(user);
 		ModelAndView mav = new ModelAndView();
-		
-//		mav.setViewName("index.jsp");
 		mav.setViewName("showBookings.jsp");
 		mav.addObject("bookingList", bookingList);
 		return mav;
