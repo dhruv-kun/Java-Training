@@ -1,0 +1,11 @@
+{
+	"campaign": {
+		"campaign_id": 1
+	},
+	"user": {
+		"user_id": 1
+	},
+	"donatedOn": "2019-02-21",
+	"amount": 10001,
+	"status": "paid"
+}

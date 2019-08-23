@@ -36,7 +36,10 @@ public class CampaignService {
 
 	@Transactional
 	public void makeDonation(Donation d) {
-		Campaign c = d.getCampaign();
+		System.out.println(d.getCampaign().getCid());
+		Campaign c = campaignDao.findById(d.getCampaign().getCid()).get();
+		System.out.println("===================" + "active".equals(c.getStatus()) + "=================");
+		System.out.println(c.getStatus());
 		if ("active".equals(c.getStatus())) {
 			c.setCurrAmount(c.getCurrAmount() + d.getAmount());
 			if (c.getCurrAmount() >= c.getMaxAmount()) {
