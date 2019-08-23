@@ -1,9 +1,9 @@
 {
 	"campaign": {
-		"campaign_id": 1
+		"cid": 1
 	},
 	"user": {
-		"user_id": 1
+		"email": "mango@eatme.com"
 	},
 	"donatedOn": "2019-02-21",
 	"amount": 10001,

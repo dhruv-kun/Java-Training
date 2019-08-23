@@ -26,7 +26,7 @@ public class DonationController {
 
 	@PostMapping("donations") 
 	public ResponseEntity<Donation> makeDonation(@RequestBody Donation d) {
-		campaignService.makeDonation(d);;
+		campaignService.makeDonation(d);
 		return new ResponseEntity<>(d, HttpStatus.CREATED);
 	}
 

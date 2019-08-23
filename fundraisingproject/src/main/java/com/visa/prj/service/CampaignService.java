@@ -36,17 +36,16 @@ public class CampaignService {
 
 	@Transactional
 	public void makeDonation(Donation d) {
-		System.out.println(d.getCampaign().getCid());
 		Campaign c = campaignDao.findById(d.getCampaign().getCid()).get();
-		System.out.println("===================" + "active".equals(c.getStatus()) + "=================");
-		System.out.println(c.getStatus());
+		User u = userDao.findById(d.getUser().getEmail()).get();
 		if ("active".equals(c.getStatus())) {
 			c.setCurrAmount(c.getCurrAmount() + d.getAmount());
 			if (c.getCurrAmount() >= c.getMaxAmount()) {
 				campaignDao.updateStatus("closed", c.getCid());
 			}
-			userDao.save(d.getUser());
 			campaignDao.updateCurrAmount(d.getAmount(), c.getCid());
+			d.setCampaign(c);
+			d.setUser(u);
 			donationDao.save(d);
 		}
 	}
