@@ -1,6 +1,12 @@
-{
-	"fullName": "Mango",
-	"email": "mango@eatme.com",
-	"phoneNo": "1231314"
-	
-}
+[
+	{
+		"fullName": "Mango",
+		"email": "mango@eatme.com",
+		"phoneNo": "1231314"
+	},
+	{
+		"fullName": "UnluckyOne",
+		"email": "always@whyme.com",
+		"phoneNo": "1231451"
+	}
+]

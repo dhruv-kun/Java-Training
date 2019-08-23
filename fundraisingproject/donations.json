@@ -1,11 +1,35 @@
-{
-	"campaign": {
-		"cid": 1
+[
+	{
+		"campaign": {
+			"cid": 1
+		},
+		"user": {
+			"email": "mango@eatme.com"
+		},
+		"donatedOn": "2019-02-21",
+		"amount": 10001,
+		"status": "paid"
 	},
-	"user": {
-		"email": "mango@eatme.com"
+	{
+		"campaign": {
+			"cid": 2
+		},
+		"user": {
+			"email": "always@whyme.com"
+		},
+		"donatedOn": "2019-02-30",
+		"amount": 1,
+		"status": "paid"
 	},
-	"donatedOn": "2019-02-21",
-	"amount": 10001,
-	"status": "paid"
-}
+	{
+		"campaign": {
+			"cid": 3
+		},
+		"user": {
+			"email": " mango@eatme.com"
+		},
+		"donatedOn": "2019-08-15",
+		"amount": 1000,
+		"status": "paid"
+	}
+]

@@ -1,10 +1,29 @@
-{
-	"title": "Go Green Oranges",
-	"description": "To save the green oranges",
-	"deadline": "2020-02-20",
-	"currAmount": 0,
-	"maxAmount": "10000",
-	"terms": "NO CONDITIONS APPLY!!!!!",
-	"status": "active"
-	
-}
+[
+	{
+		"title": "Go Green Oranges",
+		"description": "To save the green oranges",
+		"deadline": "2020-02-20",
+		"currAmount": 0,
+		"maxAmount": "10000",
+		"terms": "NO CONDITIONS APPLY!!!!!",
+		"status": "active"
+	},
+	{
+		"title": "Slice the lemon",
+		"description": "Water shortage for lemonades",
+		"deadline": "2020-03-30",
+		"currAmount": 0,
+		"maxAmount": "4000",
+		"terms": "Only for people who gets lemons",
+		"status": "active"
+	},
+	{
+		"title": "Personal finance",
+		"description": "I'm broke.",
+		"deadline": "2040-03-30",
+		"currAmount": 0,
+		"maxAmount": "1000000",
+		"terms": "No chillars please",
+		"status": "active"
+	}
+]
