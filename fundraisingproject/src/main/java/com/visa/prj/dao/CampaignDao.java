@@ -9,12 +9,12 @@ import org.springframework.data.repository.query.Param;
 import com.visa.prj.entity.Campaign;
 
 public interface CampaignDao extends JpaRepository<Campaign, Integer>{
-	@Query("update Campaign set currAmount = currAmount + :increment")
-	public void updateCurrAmount(@Param("incremnt") double increment);
+	@Query("update Campaign set currAmount = currAmount + :increment where cid = :id")
+	public void updateCurrAmount(@Param("increment") double increment, @Param("id") int id);
 	
-	@Query("update Campaign set status = :status")
-	public void updateStatus(@Param("status") String status);
+	@Query("update Campaign set status = :status where cid = :id")
+	public void updateStatus(@Param("status") String status, @Param("id") int id);
 	
-	@Query("select Campaign where status = :status")
+	@Query("from Campaign where status = :status")
 	public List<Campaign> getCampaigns(@Param("status") String status);
 }

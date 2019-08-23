@@ -35,8 +35,5 @@ public class CustomerController {
 	public ResponseEntity<Customer> addCustomer(@RequestBody Customer c) {
 		orderService.saveCustomer(c);
 		return new ResponseEntity<>(c, HttpStatus.CREATED);
-
-
-		
 	}
 }

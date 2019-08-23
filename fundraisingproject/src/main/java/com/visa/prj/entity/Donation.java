@@ -17,25 +17,24 @@ import javax.persistence.TemporalType;
 @Table(name = "donations")
 public class Donation {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int did;
-	
+
 	@ManyToOne
-	@JoinColumn(name="campaign_id")
+	@JoinColumn(name = "campaign_id")
 	private Campaign campaign;
-	
+
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	private User user;
-	
-	
-	@Column(name="donated_on")
+
+	@Column(name = "donated_on")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date donatedOn;
-	
+
 	private double amount;
 	private String status;
-	
+
 	public Donation() {
 	}
 
@@ -95,6 +94,5 @@ public class Donation {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
+
 }
